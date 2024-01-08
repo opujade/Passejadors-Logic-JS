@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveis</title>
+</head>
+
+<body>
+    <h1>Serveis</h1>
+
+    <header>
+        <nav>
+            <a href="index.html">Inici</a>
+            <a href="serveis.html">Serveis</a>
+            <a href="contacte.html">Contacte</a>
+            <a href="login.html">Iniciar Sessió</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="servei-passejar">
+
+            <h2>Passejar:</h2>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="data-reserva">Reserva el dia que necessites que passejem el teu gos: </label>
+                <input type="date" name="data-reserva" id="data-reserva">
+            </div>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="hora-reserva">Escull una hora: </label>
+                <input type="time" name="hora-reserva" id="hora-reserva">
+            </div>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="duracio-reserva">Duració del passeig: </label>
+
+                <select name="duracio-reserva" id="duracio-reserva">
+                    <option value="30min">30 minuts</option>
+                    <option value="1h">1 hora</option>
+                    <option value="1:30">1:30 hores</option>
+                    <option value="2h">2 hores</option>
+                    <option value="duracio-especial">Duració especial</option>
+                </select>
+            </div>
+            
+            <input type="button" value="Reservar" id="boto-reserva-passeig">
+        </div>
+
+        <div id="servei-menjar">
+
+            <h2>Menjar a domicili:</h2>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="data-reserva-menjar">Reserva el dia que necessites que donem de menjar: </label>
+                <input type="date" name="data-reserva-menjar" id="data-reserva-menjar">
+            </div>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="hora-reserva-menjar">Escull una hora: </label>
+                <input type="time" name="hora-reserva-menjar" id="hora-reserva-menjar">
+            </div>
+
+            <div class="seccio-reserva-data-hora">
+                <label for="vegades-menjar">Vegades al dia: </label>
+
+                <select name="vegades-menjar" id="vegades-menjar">
+                    <option value="1-vegada">1 vegada</option>
+                    <option value="2-vegades">2 vegades</option>
+                    <option value="3-vegades">3 vegades</option>
+                    <option value="mes-de-3">Més de 3 vegades</option>
+                </select>
+            </div>
+
+            <input type="button" value="Reservar" id="boto-reserva-passeig">
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
