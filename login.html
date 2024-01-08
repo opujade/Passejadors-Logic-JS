@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oriol Pujade Busqueta">
     <title>Iniciar Sessió</title>
 </head>
 
@@ -18,6 +19,30 @@
             <a href="login.html">Iniciar Sessió</a>
         </nav>
     </header>
+
+    <main>
+        <section id="seccio-iniciar-sessio">
+
+            <div class="login-element">
+                <label for="username">Nom d'usuari:</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="login-element">
+                <label for="password">Contrassenya:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="login-element">
+                <input type="button" value="Iniciar Sessió" id="login-button">
+            </div>
+        </section>
+
+        <section>
+            <label for="create-account">Encara no tens un compte? </label>
+            <a href="signup.html">Crear Compte</a>
+        </section>
+    </main>
 
     <script type="module" src="js/main.js"></script>
 </body>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oriol Pujade Busqueta">
+    <title>Crear Compte</title>
+</head>
+
+<body>
+    <h1>Crear Compte Admin</h1>
+
+    <header>
+        <nav>
+            <a href="index.html">Inici</a>
+            <a href="serveis.html">Serveis</a>
+            <a href="contacte.html">Contacte</a>
+            <a href="login.html">Iniciar Sessió</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="seccio-crear-compte-admin">
+
+            <div class="signup-element">
+                <label for="admin-signup-username">Nou nom d'usuari:</label>
+                <input type="text" id="admin-signup-username" name="admin-signup-username">
+                <div id="admin-signup-username-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="admin-signup-password">Contrassenya:</label>
+                <input type="password" id="admin-signup-password" name="admin-signup-password">
+                <div id="admin-signup-password-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="admin-repeat-password">Repetir Contrassenya:</label>
+                <input type="password" id="admin-repeat-password" name="admin-repeat-password">
+                <div id="admin-repeat-password-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="admin-signup-mail">Correu electrònic:</label>
+                <input type="email" id="admin-signup-mail" name="admin-signup-mail">
+                <div id="admin-signup-mail-error"></div>
+            </div>
+
+            <div class="signup-element">
+                <input type="button" value="Crear Compte" id="admin-signup-button">
+            </div>
+
+            <div id="signup-admin-complete"></div>
+
+            <div id="eliminar-comptes">
+                <input type="number" name="compte-num" id="compte-num">
+                <input type="button" value="Eliminar Compta" id="eliminar-comptes-admin-btn">
+            </div>
+
+        </section>
+
+        <section>
+            <p>Ja tens un compte? </p>
+            <a href="login.html" class="login-link">Iniciar Sessió</a>
+        </section>
+    </main>
+
+    <script type="module" src="js/admin-signup.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

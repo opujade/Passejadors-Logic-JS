@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oriol Pujade Busqueta">
+    <title>Crear Compte</title>
+</head>
+
+<body>
+    <h1>Crear Compte</h1>
+
+    <header>
+        <nav>
+            <a href="index.html">Inici</a>
+            <a href="serveis.html">Serveis</a>
+            <a href="contacte.html">Contacte</a>
+            <a href="login.html">Iniciar Sessió</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="seccio-crear-compte">
+
+            <div class="signup-element">
+                <label for="signup-username">Nou nom d'usuari:</label>
+                <input type="text" id="signup-username" name="signup-username">
+                <div id="signup-username-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="signup-password">Contrassenya:</label>
+                <input type="password" id="signup-password" name="signup-password">
+                <div id="signup-password-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="repeat-password">Repetir Contrassenya:</label>
+                <input type="password" id="repeat-password" name="repeat-password">
+                <div id="signup-repeat-password-error"></div>
+            </div>
+            
+            <div class="signup-element">
+                <label for="signup-mail">Correu electrònic:</label>
+                <input type="email" id="signup-mail" name="signup-mail">
+                <div id="signup-mail-error"></div>
+            </div>
+
+            <div class="signup-element">
+                <input type="button" value="Crear Compte" id="signup-button">
+            </div>
+
+            <div id="signup-complete"></div>
+
+        </section>
+
+        <section>
+            <label for="create-account">Ja tens un compte? </label>
+            <a href="login.html">Iniciar Sessió</a>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/signup.js"></script>
+</body>
+
+</html>
