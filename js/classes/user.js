@@ -1,5 +1,7 @@
 export class User {
-    constructor(username, password, mail, admin, userId) {
+    constructor(name, lastName, username, password, mail, admin, userId) {
+        this._name = name;
+        this._lastName = lastName;
         this._username = username;
         this._password = password;
         this._mail = mail;
@@ -7,6 +9,12 @@ export class User {
         this._userId = userId;
     }
 
+    get name() { 
+        return this._name;
+    }
+    get lastName() { 
+        return this._lastName;
+    }
     get username() { 
         return this._username;
     }

@@ -12,7 +12,7 @@ let passejadorsUsersStatus = JSON.parse(localStorage.getItem('passejadorsUsersSt
 function loginCheck() {
     if (passejadorsUsersStatus != null) {
         loginMenuLink.href = 'user-page.html';
-        loginMenuLink.innerHTML = passejadorsUsersStatus._username;
+        loginMenuLink.innerHTML = `Hola, ${passejadorsUsersStatus._name}`;
         console.log(loginMenuLink)
         seccioIniciarSessio.innerHTML = `<p>Sessió iniciada com a ${passejadorsUsersStatus._username}`;
         seccioCompteUsuari.innerHTML = '';

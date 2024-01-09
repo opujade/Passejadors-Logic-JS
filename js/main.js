@@ -1,4 +1,3 @@
-
 /* Constants */
 const loginMenuLink = document.getElementById('login-menu-link');
 let passejadorsUsersStatus = JSON.parse(localStorage.getItem('passejadorsUsersStatus'));
@@ -7,7 +6,7 @@ let passejadorsUsersStatus = JSON.parse(localStorage.getItem('passejadorsUsersSt
 function loginCheck() {
     if (passejadorsUsersStatus != null) {
         loginMenuLink.href = 'user-page.html';
-        loginMenuLink.innerHTML = passejadorsUsersStatus._username;
+        loginMenuLink.innerHTML = `Hola, ${passejadorsUsersStatus._name}`;
     }
 }
 

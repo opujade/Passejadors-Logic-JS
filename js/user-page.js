@@ -7,7 +7,8 @@ let passejadorsUsersStatus = JSON.parse(localStorage.getItem('passejadorsUsersSt
 function loginCheck() {
     if (passejadorsUsersStatus != null) {
         loginMenuLink.href = 'user-page.html';
-        loginMenuLink.innerHTML = passejadorsUsersStatus._username;
+        loginMenuLink.innerHTML = `Hola, ${passejadorsUsersStatus._name}`;
+        console.log(passejadorsUsersStatus);
     } else {
         location.replace('login.html');
     }

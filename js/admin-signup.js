@@ -1,4 +1,4 @@
-import { User } from "./user.js";
+import { User } from "./classes/user.js";
 
 /* Globals */
 const passejadorsUsers = initPassejadorsUsers();
@@ -22,6 +22,8 @@ function createAdminUser() {
     signupAdminRepeatPasswordError.innerHTML = '';
     signupAdminMailError.innerHTML = '';
     // Recollir dades:
+    let name = document.getElementById('admin-signup-name').value;
+    let lastName = document.getElementById('admin-signup-lastname').value;
     let username = document.getElementById('admin-signup-username').value;
     let password = document.getElementById('admin-signup-password').value;
     let repeatPassword = document.getElementById('admin-repeat-password').value;
@@ -55,11 +57,12 @@ function createAdminUser() {
                     if (comprovarUsername(username)) {
                         if (comprovarMail(mail)) {
                             const newUserId = passejadorsUsers.length + 1;
-                            passejadorsUsers.push(new User(username, password, mail, true, newUserId));
+                            passejadorsUsers.push(new User(name, lastName, username, password, mail, true, newUserId));
                             localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
                             signupAdminComplete.innerHTML = '<p style="color: green">Compte creat correctament.</p>';
-
-                            console.log(passejadorsUsers);
+                            passejadorsUsersStatus = passejadorsUsers[passejadorsUsers.length - 1];
+                            localStorage.setItem('passejadorsUsersStatus', JSON.stringify(passejadorsUsersStatus));
+                            location.replace('user-page.html');
                         } else {
                             signupAdminMailError.innerHTML = '<p style="color: red">Aquest correu ja està registrat.</p>';
                         }
@@ -142,7 +145,14 @@ function eliminarComptes() {
     passejadorsUsers.splice(compteNum, 1);
     localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
 }
+function comprovarContrassenyaAdmin() {
+    let password = prompt('Escriu la contrassenya d\'administrador:');
+    if (password != '123') {
+        document.getElementById('seccio-crear-compte-admin').innerHTML = '<p style="color:red">No pots crear un compte d\'administrador.';
+    }
+}
 
 /* Event Listeners & Functions */
 signupAdminBtn.addEventListener('click', createAdminUser);
 eliminarComptesAdminBtn.addEventListener('click', eliminarComptes);
+comprovarContrassenyaAdmin();

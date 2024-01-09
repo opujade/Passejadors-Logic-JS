@@ -1,4 +1,4 @@
-import { User } from "./user.js";
+import { User } from "./classes/user.js";
 
 /* Globals */
 const passejadorsUsers = initPassejadorsUsers();
@@ -21,6 +21,8 @@ function createUser() {
     signupRepeatPasswordError.innerHTML = '';
     signupMailError.innerHTML = '';
     // Recollir dades:
+    let name = document.getElementById('signup-name').value;
+    let lastName = document.getElementById('signup-lastname').value;
     let username = document.getElementById('signup-username').value;
     let password = document.getElementById('signup-password').value;
     let repeatPassword = document.getElementById('repeat-password').value;
@@ -30,7 +32,7 @@ function createUser() {
     const validateUser = validateSignupUserPassword(username);
     if (validateUser != 0) {
         switch (validateUser) {
-            case 1: signupUsernameError.innerHTML = '<p style="color: red">No es poden introduïr els següents caràcters: &, =, _, -, \', ", +, ,, <, >. </p>';
+            case 1: signupUsernameError.innerHTML = '<p style="color: red">No es poden introduïr espais ni els següents caràcters: &, =, _, -, \', ", +, ,, <, >. </p>';
             case 2: signupUsernameError.innerHTML = '<p style="color: red">No hi pot haver dos punts seguits.</p>';
             case 3: signupUsernameError.innerHTML = '<p style="color: red">El nom d\'usuari ha de ser entre 6 i 30 caràcters.</p>';
         }
@@ -54,10 +56,13 @@ function createUser() {
                     if (comprovarUsername(username)) {
                         if (comprovarMail(mail)) {
                             const newUserId = passejadorsUsers.length + 1;
-                            passejadorsUsers.push(new User(username, password, mail, false, newUserId));
+                            passejadorsUsers.push(new User(name, lastName, username, password, mail, false, newUserId));
                             localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
                             signupComplete.innerHTML = '<p style="color: green">Compte creat correctament.</p>';
                             console.log(passejadorsUsers);
+                            passejadorsUsersStatus = passejadorsUsers[passejadorsUsers.length - 1];
+                            localStorage.setItem('passejadorsUsersStatus', JSON.stringify(passejadorsUsersStatus));
+                            location.replace('user-page.html');
                         } else {
                             signupMailError.innerHTML = '<p style="color: red">Aquest correu ja està registrat.</p>';
                         }
@@ -94,7 +99,7 @@ function comprovarMail(mail) {
 }
 
 function validateSignupUserPassword(usernamePassword) {
-    const errorChars = ['&', '=', '_', '\'', '"', '-', '+', ',', '<', '>'];
+    const errorChars = ['&', '=', '_', '\'', '"', '-', '+', ',', '<', '>', ' '];
     if (usernamePassword.length >= 6 && usernamePassword.length <= 30) {
         for (let i = 0; i < usernamePassword.length; i++) {
             errorChars.forEach(element => {
