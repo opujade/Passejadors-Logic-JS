@@ -4,7 +4,7 @@ import { User } from "./user.js";
 const passejadorsUsers = initPassejadorsUsers();
 let passejadorsUsersStatus = localStorage.getItem('passejadorsUsersStatus');
 console.log(passejadorsUsers);
-console.log('funciona');
+
 /* Signup Admin Section */
 const signupAdminBtn = document.getElementById('admin-signup-button');
 const signupAdminUsernameError = document.getElementById('admin-signup-username-error');
@@ -15,7 +15,6 @@ const signupAdminComplete = document.getElementById('signup-admin-complete');
 const eliminarComptesAdminBtn = document.getElementById('eliminar-comptes-admin-btn');
 
 /* ------------- SIGN UP ADMIN ------------- */
-
 function createAdminUser() {
     // Buidar errors:
     signupAdminUsernameError.innerHTML = '';
@@ -55,9 +54,9 @@ function createAdminUser() {
                     // Comprovar que el nom d'usuari no existeix:
                     if (comprovarUsername(username)) {
                         if (comprovarMail(mail)) {
-                            passejadorsUsers.push(new User(username, password, mail, true, passejadorsUsers.length++));
-                            console.log(passejadorsUsers)
-                            // localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
+                            const newUserId = passejadorsUsers.length + 1;
+                            passejadorsUsers.push(new User(username, password, mail, true, newUserId));
+                            localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
                             signupAdminComplete.innerHTML = '<p style="color: green">Compte creat correctament.</p>';
 
                             console.log(passejadorsUsers);
@@ -78,22 +77,22 @@ function createAdminUser() {
 
 /* Function Validate */
 function comprovarUsername(username) {
+    let validUser = true;
     passejadorsUsers.forEach(element => {
-        console.log(element.username)
         if (element._username == username) {
-            return false;
+            validUser = false;
         }
     });
-    return true;
+    return validUser;
 }
 function comprovarMail(mail) {
+    let validMail = true;
     passejadorsUsers.forEach(element => {
-        console.log(element.mail)
         if (element._mail == mail) {
-            return false;
+            validMail = false;
         }
     });
-    return true;
+    return validMail;
 }
 
 function validateSignupUserPassword(usernamePassword) {
@@ -134,15 +133,14 @@ function initPassejadorsUsers() {
     let passejadorsUsers = JSON.parse(localStorage.getItem('passejadorsUsers'));
     if (passejadorsUsers == null) {
         passejadorsUsers = [];
-        // localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
+        localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
     }
     return passejadorsUsers;
 }
 function eliminarComptes() {
     const compteNum = parseInt(document.getElementById('compte-num').value);
     passejadorsUsers.splice(compteNum, 1);
-    // localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
-    console.log(passejadorsUsers);
+    localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
 }
 
 /* Event Listeners & Functions */

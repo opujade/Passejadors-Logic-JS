@@ -3,6 +3,7 @@ import { User } from "./user.js";
 /* Globals */
 const passejadorsUsers = initPassejadorsUsers();
 let passejadorsUsersStatus = localStorage.getItem('passejadorsUsersStatus');
+console.log(passejadorsUsers);
 
 /* Signup Section */
 const signupBtn = document.getElementById('signup-button');
@@ -11,7 +12,6 @@ const signupPasswordError = document.getElementById('signup-password-error');
 const signupRepeatPasswordError = document.getElementById('signup-repeat-password-error');
 const signupMailError = document.getElementById('signup-mail-error');
 const signupComplete = document.getElementById('signup-complete');
-
 
 /* ------------- SIGN UP ------------- */
 function createUser() {
@@ -53,9 +53,11 @@ function createUser() {
                     // Comprovar que el nom d'usuari no existeix:
                     if (comprovarUsername(username)) {
                         if (comprovarMail(mail)) {
-                            passejadorsUsers.push(new User(username, password, mail, false, passejadorsUsers.length++));
+                            const newUserId = passejadorsUsers.length + 1;
+                            passejadorsUsers.push(new User(username, password, mail, false, newUserId));
                             localStorage.setItem('passejadorsUsers', JSON.stringify(passejadorsUsers));
                             signupComplete.innerHTML = '<p style="color: green">Compte creat correctament.</p>';
+                            console.log(passejadorsUsers);
                         } else {
                             signupMailError.innerHTML = '<p style="color: red">Aquest correu ja està registrat.</p>';
                         }
@@ -73,20 +75,22 @@ function createUser() {
 
 /* Function Validate */
 function comprovarUsername(username) {
+    let validUsername = true;
     passejadorsUsers.forEach(element => {
-        if (element.username == username) {
-            return false;
+        if (element._username == username) {
+            validUsername = false;
         }
     });
-    return true;
+    return validUsername;
 }
 function comprovarMail(mail) {
+    let validMail = true
     passejadorsUsers.forEach(element => {
-        if (element.mail == mail) {
-            return false;
+        if (element._mail == mail) {
+            validMail = false;
         }
     });
-    return true;
+    return validMail;
 }
 
 function validateSignupUserPassword(usernamePassword) {

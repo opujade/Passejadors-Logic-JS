@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Oriol Pujade Busqueta">
-    <title>Passejadors</title>
+    <title>El meu compte</title>
 </head>
 
 <body>
-    <h1>Passejadors</h1>
+    <h1 id="header-usernames">El meu compte</h1>
 
     <header>
         <nav>
@@ -21,12 +21,16 @@
     </header>
 
     <main>
-        <h2>Qui som?</h2>
-        <p>Som la Ivet i l'Oriol i ens dediquem a passejar gossos a les nostres estones lliures.</p>
-        <p>Pots reservar els nostres serveis fent click <a href="serveis.html">aquí</a>.</p>
+        <section id="passejos">
+            <h2>Els meus passejos:</h2>
+        </section>
+
+        <section id="logout">
+            <input type="button" value="Tancar Sessió" id="logout-button">
+        </section>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/user-page.js"></script>
 </body>
 
 </html>

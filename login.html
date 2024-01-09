@@ -16,7 +16,7 @@
             <a href="index.html">Inici</a>
             <a href="serveis.html">Serveis</a>
             <a href="contacte.html">Contacte</a>
-            <a href="login.html">Iniciar Sessió</a>
+            <a href="login.html" id="login-menu-link">Iniciar Sessió</a>
         </nav>
     </header>
 
@@ -25,26 +25,27 @@
 
             <div class="login-element">
                 <label for="username">Nom d'usuari:</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="login-username" name="login-username">
             </div>
 
             <div class="login-element">
                 <label for="password">Contrassenya:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="login-password" name="login-password">
             </div>
 
             <div class="login-element">
                 <input type="button" value="Iniciar Sessió" id="login-button">
+                <div id="login-message"></div>
             </div>
         </section>
 
-        <section>
+        <section id="seccio-compte-usuari">
             <label for="create-account">Encara no tens un compte? </label>
             <a href="signup.html">Crear Compte</a>
         </section>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/login.js"></script>
 </body>
 
 </html>
