@@ -1,11 +1,10 @@
-export class ReservaPasseig {
-    constructor(dogName, date, time, durada, userId, passejador, observacions) {
+export class ReservaMenjar {
+    constructor(dogName, date, amount, time, userId, observacions) {
         this._dogName = dogName;
         this._date = date;
+        this._amount = amount;
         this._time = time;
-        this._durada = durada;
         this._userId = userId;
-        this._passejador = passejador;
         this._observacions = observacions;
     }
     get dogName() {
@@ -17,10 +16,10 @@ export class ReservaPasseig {
     get time() {
         return this._time;
     }
-    get durada() {
-        return this._durada;
+    get amount() {
+        return this._amount;
     }
-    get passejador() {
+    get userId() {
         return this._passejador;
     }
     get observacions() {

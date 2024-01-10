@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Oriol Pujade Busqueta">
     <title>Serveis</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
@@ -23,9 +24,15 @@
     <main>
         <section id="serveis">
             <div id="serveis-passejar">
-                
-                <h2>Passejar:</h2>
-                <section class="serveis-opcions">
+
+                <input type="button" value="Passejar" id="serveis-passejar__button">
+                <section class="serveis-opcions hidden">
+                    <div class="seccio-reserva">
+                        <label for="dog-name">Nom del gos: </label>
+                        <input type="text" name="dog-name" id="dog-name">
+                        <div id="name-error"></div>
+                    </div>
+
                     <div class="seccio-reserva">
                         <label for="passejador">Passejador: </label>
                         <select name="passejador" id="passejador"></select>
@@ -34,16 +41,16 @@
                     <div class="seccio-reserva">
                         <label for="data-reserva">Dia: </label>
                         <input type="date" name="data-reserva" id="data-reserva">
+                        <input type="button" value="Hora" id="show-time-button">
                         <div id="date-error"></div>
                     </div>
 
-                    <div class="seccio-reserva">
+                    <div class="seccio-reserva hidden">
                         <label for="hora-reserva">Hora: </label>
                         <select name="hora-reserva" id="hora-reserva"></select>
-                        <div id="time-error"></div>
                     </div>
 
-                    <div class="seccio-reserva">
+                    <div class="seccio-reserva hidden">
                         <label for="durada-reserva">Durada del passeig: </label>
 
                         <select name="durada-reserva" id="durada-reserva">
@@ -51,52 +58,57 @@
                             <option value="1h">1 hora</option>
                             <option value="1:30">1:30 hores</option>
                             <option value="2h">2 hores</option>
-                            <option value="durada-especial">Durada especial</option>
                         </select>
                     </div>
 
-                    <div class="seccio-reserva">
+                    <div class="seccio-reserva hidden">
                         <label for="observacions">Observacions: </label>
                         <textarea name="observacions" id="observacions" cols="30" rows="3"
                             placeholder="Comportament, pors, informació rellevant..."></textarea>
                     </div>
                 </section>
 
-                <input type="button" value="Reservar" id="boto-reserva-passeig">
+                <input type="button" value="Reservar" id="boto-reserva-passeig" class="hidden">
             </div>
 
             <div id="serveis-menjar">
 
-                <h2>Menjar a domicili:</h2>
-                <section class="serveis-opcions">
+                <input type="button" value="Menjar a domicili" id="serveis-menjar__button">
+                <section class="serveis-opcions hidden">
+                    <div class="seccio-reserva">
+                        <label for="nom-gos-menjar">Nom del gos: </label>
+                        <input type="text" name="nom-gos-menjar" id="nom-gos-menjar">
+                        <div id="food-dog-name-error"></div>
+                    </div>
+
                     <div class="seccio-reserva">
                         <label for="data-reserva-menjar">Dia: </label>
                         <input type="date" name="data-reserva-menjar" id="data-reserva-menjar">
+                        <input type="button" value="Vegades al dia" id="vegades-dia-button">
+                        <div id="food-date-error"></div>
                     </div>
 
-                    <div class="seccio-reserva">
-                        <label for="hora-reserva-menjar">Hora: </label>
-                        <input type="time" name="hora-reserva-menjar" id="hora-reserva-menjar">
-                    </div>
-
-                    <div class="seccio-reserva">
+                    <div class="seccio-reserva hidden">
                         <label for="vegades-menjar">Vegades al dia: </label>
 
                         <select name="vegades-menjar" id="vegades-menjar">
-                            <option value="1-vegada">1 vegada</option>
-                            <option value="2-vegades">2 vegades</option>
-                            <option value="3-vegades">3 vegades</option>
-                            <option value="mes-de-3">Més de 3 vegades</option>
+                            <option value="1">1 vegada</option>
+                            <option value="2">2 vegades</option>
+                            <option value="3">3 vegades</option>
                         </select>
                     </div>
 
-                    <div class="seccio-reserva">
+                    <div class="seccio-reserva hidden">
+                        <label for="hora-reserva">Hora: </label>
+                    </div>
+
+                    <div class="seccio-reserva hidden">
                         <label for="observacions">Observacions: </label>
                         <textarea name="observacions" id="observacions-menjar" cols="30" rows="3"
                             placeholder="Alèrgies, quantitat, informació rellevant..."></textarea>
                     </div>
                 </section>
-                <input type="button" value="Reservar" id="boto-reserva-passeig">
+                <input type="button" value="Reservar" id="boto-reserva-menjar" class="hidden">
             </div>
         </section>
     </main>
